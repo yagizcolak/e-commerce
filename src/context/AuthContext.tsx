@@ -4,12 +4,12 @@ import React, {
   useEffect,
   ReactNode,
   useCallback,
-  useContext, // Import useContext
+  useContext,
 } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { decodeJwt, SignJWT } from 'jose';
-import { ColorModeContext } from './ColorModeContext'; // Import ColorModeContext
-import { JWT_SECRET } from '../config';
+import { decodeJwt } from 'jose';
+import { ColorModeContext } from './ColorModeContext';
+import axiosInstance from '../api/axiosInstance';
 
 interface AuthContextType {
   token: string | null;
@@ -71,26 +71,16 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   }, [token, logout]);
 
   const login = async (username: string, password: string) => {
-    // Simulate API call
-    if (username === 'user' && password === 'user123') {
-      try {
-        // Generate JWT token
-        const jwtToken = await new SignJWT({ username })
-          .setProtectedHeader({ alg: 'HS256', typ: 'JWT' })
-          .setIssuedAt()
-          .setExpirationTime('1h')
-          .sign(new TextEncoder().encode(JWT_SECRET));
+    try {
+      // Make API call to the mock backend
+      const response = await axiosInstance.post('/login', { username, password });
+      const jwtToken = response.data.token;
 
-        // I know this is not the safest way to store JWT, just for the sake of demonstration 
-        localStorage.setItem('token', jwtToken);
-        setToken(jwtToken);
-        navigate('/products');
-      } catch (error) {
-        console.error('Error generating token:', error);
-        throw new Error('Failed to generate token');
-      }
-    } else {
-      console.warn('Invalid username or password attempt.');
+      localStorage.setItem('token', jwtToken);
+      setToken(jwtToken);
+      navigate('/products');
+    } catch (error) {
+      console.error('Login error:', error);
       throw new Error('Invalid username or password');
     }
   };
