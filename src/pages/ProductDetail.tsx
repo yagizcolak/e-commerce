@@ -153,7 +153,7 @@ const ProductDetail: React.FC = () => {
             component="div"
             sx={{ display: "flex", justifyContent: "center" }}
           >
-            <Card sx={{ maxWidth: 500, boxShadow: 3, borderRadius: 2 }}>
+            <Card sx={{ maxWidth: '25vw', boxShadow: 3, borderRadius: 2 }}>
               <ImageSlider images={product.images} altText={product.name} />
             </Card>
           </Grid2>
@@ -177,65 +177,65 @@ const ProductDetail: React.FC = () => {
               {/* Tab Panels */}
               <Box sx={{ mt: 2 }}>
                 {tabIndex === 0 && (
-                  <Box>
-                    {/* Product Information */}
-                    <Typography variant="h5" gutterBottom>
-                      {product.name}
+                  <Box sx={{ p: 3, bgcolor: 'background.paper', borderRadius: 2, boxShadow: 3 }}>
+                  {/* Product Name */}
+                  <Typography variant="h4" component="h1" gutterBottom>
+                    {product.name}
+                  </Typography>
+                
+                  {/* Price */}
+                  <Typography variant="h5" color="primary" gutterBottom>
+                    {new Intl.NumberFormat("en-US", {
+                      style: "currency",
+                      currency: currency,
+                    }).format(convertPrice(product.price, currency))}
+                  </Typography>
+                
+                  {/* Rating */}
+                  <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                    <Rating
+                      name={`rating-${product.id}`}
+                      value={product.rating}
+                      precision={0.1}
+                      readOnly
+                    />
+                    <Typography variant="body1" color="text.secondary" sx={{ ml: 1 }}>
+                      {product.rating.toFixed(1)}
                     </Typography>
-                    <Typography variant="h6" color="text.primary" gutterBottom>
-                      {new Intl.NumberFormat("en-US", {
-                        style: "currency",
-                        currency: currency,
-                      }).format(convertPrice(product.price, currency))}
-                    </Typography>
-                    <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-                      <Rating
-                        name={`rating-${product.id}`}
-                        value={product.rating}
-                        precision={0.1}
-                        readOnly
-                      />
-                      <Typography
-                        variant="body1"
-                        color="text.secondary"
-                        sx={{ ml: 1 }}
-                      >
-                        {product.rating.toFixed(1)}
+                  </Box>
+                
+                  {/* Product Details */}
+                  <Grid2 container spacing={2} sx={{ mb: 2 }}>
+                    <Grid2 size={{ xs: 12, sm: 6 }}>
+                      <Typography variant="subtitle1" color="text.secondary">
+                        <strong>Arrival Date:</strong>
                       </Typography>
-                    </Box>
-                    <Typography
-                      variant="body1"
-                      color="text.secondary"
-                      gutterBottom
-                    >
-                      Arrival Date:{" "}
-                      {new Date(product.arrivalDate).toLocaleDateString(
-                        "en-US",
-                        {
+                      <Typography variant="body2">
+                        {new Date(product.arrivalDate).toLocaleDateString("en-US", {
                           month: "2-digit",
                           day: "2-digit",
                           year: "numeric",
-                        }
-                      )}
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      color="text.secondary"
-                      gutterBottom
-                    >
-                      Total Comments: {comments.length}
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      color="text.secondary"
-                      gutterBottom
-                    >
+                        })}
+                      </Typography>
+                    </Grid2>
+                    <Grid2 size={{ xs: 12, sm: 6 }}>
+                      <Typography variant="subtitle1" color="text.secondary">
+                        <strong>Total Comments:</strong>
+                      </Typography>
+                      <Typography variant="body2">{comments.length}</Typography>
+                    </Grid2>
+                  </Grid2>
+                
+                  {/* Description */}
+                  <Box>
+                    <Typography variant="subtitle1" color="text.secondary" gutterBottom>
                       Description:
                     </Typography>
-                    <Typography variant="body2">
+                    <Typography variant="body1" color="text.primary">
                       {product.description}
                     </Typography>
                   </Box>
+                </Box>
                 )}
 
                 {tabIndex === 1 && (

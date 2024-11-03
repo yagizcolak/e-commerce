@@ -79,7 +79,7 @@ mock.onPost(/\/products\/\d+\/comments/).reply(async (config) => {
       const product = productData.find((p: Product) => p.id === id);
       if (product) {
         const newComment: Comment = JSON.parse(config.data);
-        product.comments.push(newComment);
+        product.comments.unshift(newComment); // Add to the beginning of the array
         // Update the product's average rating
         product.rating =
           product.comments.reduce((sum: number, c: Comment) => sum + c.rating, 0) / product.comments.length;
