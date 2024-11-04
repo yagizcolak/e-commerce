@@ -81,7 +81,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       navigate('/products');
     } catch (error) {
       console.error('Login error:', error);
-      throw new Error('Invalid username or password');
+      throw error;
     }
   };
 

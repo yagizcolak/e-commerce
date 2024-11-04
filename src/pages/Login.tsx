@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Container,
   TextField,
@@ -13,6 +13,8 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { AuthContext } from '../context/AuthContext';
 import logo from '../assets/logo.svg';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 interface ErrorResponseData {
   message: string;
@@ -28,32 +30,44 @@ function isAxiosError(error: unknown): error is AxiosError<ErrorResponseData> {
 }
 
 const Login: React.FC = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState('');
   const authContext = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
+  const [serverError, setServerError] = useState<string>('');
+
+  const formik = useFormik({
+    initialValues: {
+      username: '',
+      password: '',
+    },
+    validationSchema: Yup.object({
+      username: Yup.string()
+        .required('Username is required'),
+      password: Yup.string()
+        .required('Password is required'),
+    }),
+    onSubmit: async (values, { setSubmitting }) => {
+      setServerError('');
+      try {
+        if (authContext) {
+          await authContext.login(values.username, values.password);
+        }
+      } catch (error: unknown) {
+        if (isAxiosError(error)) {
+          console.error(error);
+          setServerError(error.response?.data?.message || 'Failed to login.');
+        } else {
+          console.error('Unexpected error:', error);
+          setServerError('Failed to login.');
+        }
+      } finally {
+        setSubmitting(false);
+      }
+    },
+  });
 
   if (!authContext) {
     return null;
   }
-
-  const { login } = authContext;
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      await login(username, password);
-    } catch (error: unknown) {
-      if (isAxiosError(error)) {
-        console.error(error);
-        setError(error.response?.data?.message || "Failed to login.");
-      } else {
-        console.error('Unexpected error:', error);
-        setError('Failed to login.');
-      }
-    }
-  };
 
   const handleClickShowPassword = () => setShowPassword(!showPassword);
 
@@ -82,7 +96,7 @@ const Login: React.FC = () => {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
-            <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <Box component="form" onSubmit={formik.handleSubmit} sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
@@ -92,8 +106,11 @@ const Login: React.FC = () => {
                 name="username"
                 autoComplete="username"
                 autoFocus
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                value={formik.values.username}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={formik.touched.username && Boolean(formik.errors.username)}
+                helperText={formik.touched.username && formik.errors.username}
               />
               <TextField
                 margin="normal"
@@ -104,8 +121,11 @@ const Login: React.FC = () => {
                 type={showPassword ? 'text' : 'password'}
                 id="password"
                 autoComplete="current-password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={formik.touched.password && Boolean(formik.errors.password)}
+                helperText={formik.touched.password && formik.errors.password}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
@@ -116,15 +136,16 @@ const Login: React.FC = () => {
                   ),
                 }}
               />
-              {error && (
+              {serverError && (
                 <Typography color="error" variant="body2">
-                  {error}
+                  {serverError}
                 </Typography>
               )}
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
+                disabled={formik.isSubmitting || !formik.isValid}
                 sx={{ mt: 3, mb: 2 }}
               >
                 Sign In
