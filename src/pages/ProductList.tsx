@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Box, Grid2, Toolbar } from '@mui/material';
+import { Box, Grid2, Toolbar, Pagination } from '@mui/material';
 import axiosInstance from '../api/axiosInstance';
 import { AxiosError } from 'axios';
 import { Product } from '../types/Product';
@@ -17,6 +17,9 @@ const ProductList: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   const { currency } = useContext(CurrencyContext);
+
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const itemsPerPage = 4;
 
   useEffect(() => {
     // Clear the selected product ID when the products list is loaded
@@ -49,6 +52,15 @@ const ProductList: React.FC = () => {
     navigate(`/products/${productId}`);
   };
 
+  const indexOfLastProduct = currentPage * itemsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - itemsPerPage;
+  const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+  const totalPages = Math.ceil(products.length / itemsPerPage);
+
+  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setCurrentPage(value);
+  };
+
   return (
     <Box>
       <CustomAppBar title="Products" />
@@ -63,17 +75,38 @@ const ProductList: React.FC = () => {
         ) : error ? (
           <ErrorAlert message={error} />
         ) : (
-          <Grid2 container spacing={4}>
-            {products.map((product: Product) => (
-              <Grid2
-                key={product.id}
-                size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
-                component="div"
-              >
-                <ProductCard product={product} onViewDetails={handleProductClick} currency={currency} />
-              </Grid2>
-            ))}
-          </Grid2>
+          <>
+            <Grid2 container spacing={4}>
+              {currentProducts.map((product: Product) => (
+                <Grid2
+                  key={product.id}
+                  size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
+                  component="div"
+                >
+                  <ProductCard
+                    product={product}
+                    onViewDetails={handleProductClick}
+                    currency={currency}
+                  />
+                </Grid2>
+              ))}
+            </Grid2>
+
+            {/* Pagination Controls */}
+            <Box
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              marginTop={4}
+            >
+              <Pagination
+                count={totalPages}
+                page={currentPage}
+                onChange={handlePageChange}
+                color="primary"
+              />
+            </Box>
+          </>
         )}
       </Box>
     </Box>
