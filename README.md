@@ -26,3 +26,8 @@ Crea Store is a React-based e-commerce application that allows users to browse p
    npm start
    
 The application will run at http://localhost:3000. It should automatically open in your default browser. If not, navigate to the URL manually.
+
+4. **Testing the Application**
+
+   ```bash
+   npm test
