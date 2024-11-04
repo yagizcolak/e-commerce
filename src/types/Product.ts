@@ -6,7 +6,7 @@ export interface Product {
     image: string;
     images: string[];
     description: string;
-    arrivalDate: string; // ISO date string
+    arrivalDate: string;
     comments: Comment[];
 }
 
@@ -15,5 +15,5 @@ export interface Comment {
     username: string;
     content: string;
     rating: number;
-    date: string; // ISO date string
+    date: string;
 }

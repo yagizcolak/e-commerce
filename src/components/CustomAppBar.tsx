@@ -20,7 +20,6 @@ import { AuthContext } from '../context/AuthContext';
 import { ColorModeContext } from '../context/ColorModeContext';
 import { CurrencyContext, Currency } from '../context/CurrencyContext';
 
-// Define the currencies constant
 const currencies = [
   {
     value: 'USD',
@@ -52,25 +51,22 @@ const CustomAppBar: React.FC<CustomAppBarProps> = ({ title }) => {
 
   const { logout } = authContext;
 
-  // Handler for Home button and "Crea" text click
   const handleHomeClick = () => {
-    navigate('/products'); // Ensure this route matches your ProductList route
+    navigate('/products');
   };
 
-  // Handler for Logout button click
   const handleLogout = () => {
     logout();
-    navigate('/login'); // Redirect to login page after logout
+    navigate('/login');
   };
 
-  // Updated handler for currency change
   const handleCurrencyChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCurrency(event.target.value as Currency);
   };
 
   return (
     <AppBar
-      position="fixed" // Makes the AppBar sticky
+      position="fixed"
       color="primary"
       elevation={4}
       sx={{

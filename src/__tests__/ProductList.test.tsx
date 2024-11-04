@@ -8,17 +8,14 @@ import { AuthContext } from '../context/AuthContext';
 import { CurrencyContext } from '../context/CurrencyContext';
 import { Product } from '../types/Product';
 
-// Mock useNavigate before importing the component
 const mockNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useNavigate: () => mockNavigate,
 }));
 
-// Initialize Axios mock adapter with axiosInstance
 const mock = new MockAdapter(axiosInstance);
 
-// Mock products data
 const mockProducts: Product[] = [
   {
     id: 1,
@@ -31,7 +28,6 @@ const mockProducts: Product[] = [
     arrivalDate: '2021-08-01T00:00:00Z',
     comments: [],
   },
-  // Add more mock products if needed
 ];
 
 describe('ProductList Component', () => {
@@ -39,7 +35,6 @@ describe('ProductList Component', () => {
   const mockSetCurrency = jest.fn();
 
   const renderProductList = () => {
-    // Set token in localStorage
     localStorage.setItem('token', 'test-token');
 
     render(
@@ -56,17 +51,17 @@ describe('ProductList Component', () => {
   afterEach(() => {
     mock.reset();
     jest.clearAllMocks();
-    localStorage.removeItem('token'); // Clean up localStorage
+    localStorage.removeItem('token');
   });
 
   test('displays loading indicator while fetching products', () => {
     mock.onGet('/api/products').reply(() => {
-      return new Promise(() => {}); // Never resolves to simulate loading
+      return new Promise(() => {});
     });
 
     renderProductList();
 
-    expect(screen.getByRole('progressbar')).toBeInTheDocument(); // Assuming LoadingIndicator uses role 'progressbar'
+    expect(screen.getByRole('progressbar')).toBeInTheDocument();
   });
 
   test('displays error message on fetch failure', async () => {

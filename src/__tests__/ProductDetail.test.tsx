@@ -8,17 +8,14 @@ import { AuthContext } from '../context/AuthContext';
 import { CurrencyContext } from '../context/CurrencyContext';
 import { Product } from '../types/Product';
 
-// Mock useNavigate
 const mockNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useNavigate: () => mockNavigate,
 }));
 
-// Initialize Axios mock adapter with axiosInstance
 const mock = new MockAdapter(axiosInstance);
 
-// Mock product data
 const mockProduct: Product = {
   id: 1,
   name: 'Product 1',
@@ -64,11 +61,11 @@ describe('ProductDetail Component', () => {
   });
 
   test('displays loading indicator while fetching product', () => {
-    mock.onGet('/api/products/1').reply(() => new Promise(() => {})); // Never resolves
+    mock.onGet('/api/products/1').reply(() => new Promise(() => {}));
 
     renderProductDetail('/products/1', '1');
 
-    expect(screen.getByRole('progressbar')).toBeInTheDocument(); // Ensure LoadingIndicator has role 'progressbar'
+    expect(screen.getByRole('progressbar')).toBeInTheDocument();
   });
 
   test('displays error message on fetch failure', async () => {
@@ -91,9 +88,9 @@ describe('ProductDetail Component', () => {
   });
 
   test('navigates back to products list if product is not selected', () => {
-    renderProductDetail('/products/1'); // No selectedProductId
+    renderProductDetail('/products/1');
 
     expect(screen.getByText('Products List')).toBeInTheDocument();
-    expect(mockNavigate).not.toHaveBeenCalled(); // Navigation handled by <Navigate />
+    expect(mockNavigate).not.toHaveBeenCalled();
   });
 });

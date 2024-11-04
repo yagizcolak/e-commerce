@@ -71,7 +71,7 @@ const CustomThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children
           MuiButton: {
             styleOverrides: {
               root: {
-                borderRadius: 8, // Rounded corners for buttons
+                borderRadius: 8,
               },
             },
           },
@@ -83,7 +83,7 @@ const CustomThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
-        <CssBaseline /> {/* Normalize styles across browsers */}
+        <CssBaseline />
         {children}
       </ThemeProvider>
     </ColorModeContext.Provider>

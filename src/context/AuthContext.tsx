@@ -29,12 +29,10 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   );
   const navigate = useNavigate();
 
-  // Access ColorModeContext
   const colorModeContext = useContext(ColorModeContext);
 
   // Memoize logout to prevent unnecessary re-creations
   const logout = useCallback(() => {
-    // Reset color mode to 'light' using setMode from ColorModeContext
     if (colorModeContext && colorModeContext.setMode) {
       colorModeContext.setMode('light');
     }
@@ -52,10 +50,8 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const verifyToken = () => {
       if (token) {
         try {
-          // Decode the token payload directly
           const payload = decodeJwt(token) as { exp?: number };
 
-          // Check token expiration
           if (payload.exp && Date.now() >= payload.exp * 1000) {
             console.warn('Token has expired.');
             logout();
@@ -72,7 +68,6 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const login = async (username: string, password: string) => {
     try {
-      // Make API call to the mock backend
       const response = await axiosInstance.post('/login', { username, password });
       const jwtToken = response.data.token;
 

@@ -21,7 +21,7 @@ import CommentForm from "../components/CommentForm";
 import ImageSlider from "../components/ImageSlider";
 import { CurrencyContext } from "../context/CurrencyContext";
 import { convertPrice } from "../utils/currencyUtils";
-import NotificationSnackbar from "../components/NotificationSnackbar"; // Import the new component
+import NotificationSnackbar from "../components/NotificationSnackbar";
 
 const ProductDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -29,16 +29,15 @@ const ProductDetail: React.FC = () => {
 
   const [product, setProduct] = useState<Product | null>(null);
   const [comments, setComments] = useState<Comment[]>([]);
-  const [tabIndex, setTabIndex] = useState(0);
-  const [isProductSelected, setIsProductSelected] = useState(true);
+  const [tabIndex, setTabIndex] = useState<number>(0);
+  const [isProductSelected, setIsProductSelected] = useState<boolean>(true);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
   const { currency } = useContext(CurrencyContext);
 
-  // Snackbar state
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [snackbarOpen, setSnackbarOpen] = useState<boolean>(false);
+  const [snackbarMessage, setSnackbarMessage] = useState<string>("");
   const [snackbarSeverity, setSnackbarSeverity] = useState<"success" | "error">(
     "success"
   );
@@ -95,7 +94,6 @@ const ProductDetail: React.FC = () => {
       setProduct(response.data);
       setComments(response.data.comments);
 
-      // Show success message
       setSnackbarMessage("Comment added successfully.");
       setSnackbarSeverity("success");
       setSnackbarOpen(true);
@@ -138,7 +136,6 @@ const ProductDetail: React.FC = () => {
 
   return (
     <Box>
-      {/* Enhanced App Bar */}
       <CustomAppBar title="Product Detail" />
 
       {/* Spacer to prevent content being hidden behind AppBar */}
@@ -147,7 +144,7 @@ const ProductDetail: React.FC = () => {
       {/* Content */}
       <Box sx={{ width: "90%", margin: "auto", mt: 2, mb: 2 }}>
         <Grid2 container spacing={4}>
-          {/* Left Side: Product Image */}
+          {/* Left Grid: Product Image */}
           <Grid2
             size={{ xs: 12, md: 6 }}
             component="div"
@@ -158,12 +155,11 @@ const ProductDetail: React.FC = () => {
             </Card>
           </Grid2>
 
-          {/* Right Side: Tabs */}
+          {/* Right Grid: Tabs */}
           <Grid2 size={{ xs: 12, md: 6 }} component="div">
             <Card
               sx={{ height: "100%", boxShadow: 3, borderRadius: 2, padding: 2 }}
             >
-              {/* Tabs */}
               <Tabs
                 value={tabIndex}
                 onChange={handleTabChange}
@@ -174,16 +170,13 @@ const ProductDetail: React.FC = () => {
                 <Tab label={`Comments (${comments.length})`} />
               </Tabs>
 
-              {/* Tab Panels */}
               <Box sx={{ mt: 2 }}>
                 {tabIndex === 0 && (
                   <Box sx={{ p: 3, bgcolor: 'background.paper', borderRadius: 2, boxShadow: 3 }}>
-                  {/* Product Name */}
                   <Typography variant="h4" component="h1" gutterBottom>
                     {product.name}
                   </Typography>
                 
-                  {/* Price */}
                   <Typography variant="h5" color="primary" gutterBottom>
                     {new Intl.NumberFormat("en-US", {
                       style: "currency",
@@ -191,7 +184,6 @@ const ProductDetail: React.FC = () => {
                     }).format(convertPrice(product.price, currency))}
                   </Typography>
                 
-                  {/* Rating */}
                   <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
                     <Rating
                       name={`rating-${product.id}`}
@@ -226,7 +218,6 @@ const ProductDetail: React.FC = () => {
                     </Grid2>
                   </Grid2>
                 
-                  {/* Description */}
                   <Box>
                     <Typography variant="subtitle1" color="text.secondary" gutterBottom>
                       Description:
@@ -253,7 +244,6 @@ const ProductDetail: React.FC = () => {
                       </Box>
                     )}
 
-                    {/* Add Comment */}
                     <CommentForm onAddComment={handleAddComment} />
                   </Box>
                 )}

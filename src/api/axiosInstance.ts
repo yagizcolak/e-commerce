@@ -6,12 +6,17 @@ import { products } from '../data/products';
 import { Product, Comment } from '../types/Product';
 import { JWT_SECRET, API_BASE_URL } from '../config';
 
+/*
+I have added this mock backend so the application can simulate having
+a backend while being standalone.
+*/
+
 // Create a custom Axios instance
 const axiosInstance = axios.create({
   baseURL: API_BASE_URL,
 });
 
-// Initialize mock adapter for this instance
+// Initialize mock adapter for this instance, adding 200ms delay for realism
 const mock = new MockAdapter(axiosInstance, { delayResponse: 200 });
 
 // Function to get product data from sessionStorage or initialize it
@@ -29,7 +34,6 @@ const saveProductData = (data: Product[]) => {
 const users = [
   {
     username: 'user',
-    // Hash the password 'user123' using CryptoJS
     passwordHash: CryptoJS.SHA256('user123').toString(),
   },
 ];
@@ -40,7 +44,6 @@ mock.onPost('/login').reply(async (config) => {
 
   const user = users.find((u) => u.username === username);
   if (user && CryptoJS.SHA256(password).toString() === user.passwordHash) {
-    // Generate JWT token
     const token = await new SignJWT({ username })
       .setProtectedHeader({ alg: 'HS256', typ: 'JWT' })
       .setIssuedAt()
@@ -126,7 +129,7 @@ mock.onPost(/\/products\/\d+\/comments/).reply(async (config) => {
 // Request interceptor for adding Authorization header
 axiosInstance.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('token'); // Get token directly from localStorage
+    const token = localStorage.getItem('token');
     if (token && config.headers) {
       config.headers.Authorization = `Bearer ${token}`;
     }

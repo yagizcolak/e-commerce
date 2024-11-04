@@ -41,7 +41,6 @@ import img7_2 from '../assets/images/7/2.jpg';
 import img8_1 from '../assets/images/8/1.jpg';
 import img8_2 from '../assets/images/8/2.jpg';
 
-// Update the products array
 export const products: Product[] = [
   {
     id: 1,

@@ -31,7 +31,7 @@ function isAxiosError(error: unknown): error is AxiosError<ErrorResponseData> {
 
 const Login: React.FC = () => {
   const authContext = useContext(AuthContext);
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
   const [serverError, setServerError] = useState<string>('');
 
   const formik = useFormik({

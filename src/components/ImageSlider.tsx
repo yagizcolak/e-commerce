@@ -27,18 +27,14 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
   useEffect(() => {
     resetTimeout();
 
-    // Start fade-out
     timeoutRef.current = setTimeout(() => {
-      // Fade-out duration
       const fadeOutDuration = 500;
 
-      // Trigger fade-out by setting opacity to 0
       const fadeOutElement = document.getElementById('main-image');
       if (fadeOutElement) {
         fadeOutElement.style.opacity = '0';
       }
 
-      // After fade-out, change image and fade-in
       timeoutRef.current = setTimeout(() => {
         setCurrentIndex((prevIndex) =>
           prevIndex === images.length - 1 ? 0 : prevIndex + 1
@@ -59,7 +55,6 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
   const goToPrevious = () => {
     resetTimeout();
 
-    // Fade-out
     const fadeOutDuration = 500;
     const fadeOutElement = document.getElementById('main-image');
     if (fadeOutElement) {
@@ -71,7 +66,6 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
         prevIndex === 0 ? images.length - 1 : prevIndex - 1
       );
 
-      // Fade-in
       const fadeInElement = document.getElementById('main-image');
       if (fadeInElement) {
         fadeInElement.style.opacity = '1';
@@ -82,7 +76,6 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
   const goToNext = () => {
     resetTimeout();
 
-    // Fade-out
     const fadeOutDuration = 500;
     const fadeOutElement = document.getElementById('main-image');
     if (fadeOutElement) {
@@ -94,7 +87,6 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
 
-      // Fade-in
       const fadeInElement = document.getElementById('main-image');
       if (fadeInElement) {
         fadeInElement.style.opacity = '1';
@@ -106,7 +98,6 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
     if (index === currentIndex) return;
     resetTimeout();
 
-    // Fade-out
     const fadeOutDuration = 500;
     const fadeOutElement = document.getElementById('main-image');
     if (fadeOutElement) {
@@ -116,7 +107,6 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
     setTimeout(() => {
       setCurrentIndex(index);
 
-      // Fade-in
       const fadeInElement = document.getElementById('main-image');
       if (fadeInElement) {
         fadeInElement.style.opacity = '1';

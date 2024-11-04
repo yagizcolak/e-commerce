@@ -68,7 +68,6 @@ const ProductList: React.FC = () => {
       {/* Spacer to prevent content being hidden behind AppBar */}
       <Toolbar />
 
-      {/* Products List */}
       <Box sx={{ padding: 4 }}>
         {loading ? (
           <LoadingIndicator />
@@ -92,7 +91,6 @@ const ProductList: React.FC = () => {
               ))}
             </Grid2>
 
-            {/* Pagination Controls */}
             <Box
               display="flex"
               justifyContent="center"
