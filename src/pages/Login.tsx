@@ -8,11 +8,24 @@ import {
   InputAdornment,
   IconButton,
 } from '@mui/material';
-import { AxiosError } from 'axios';
+import type { AxiosError } from 'axios';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { AuthContext } from '../context/AuthContext';
 import logo from '../assets/logo.svg';
+
+interface ErrorResponseData {
+  message: string;
+}
+
+function isAxiosError(error: unknown): error is AxiosError<ErrorResponseData> {
+  return (
+    typeof error === 'object' &&
+    error !== null &&
+    'isAxiosError' in error &&
+    (error as any).isAxiosError === true
+  );
+}
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -32,7 +45,7 @@ const Login: React.FC = () => {
     try {
       await login(username, password);
     } catch (error: unknown) {
-      if (error instanceof AxiosError) {
+      if (isAxiosError(error)) {
         console.error(error);
         setError(error.response?.data?.message || "Failed to login.");
       } else {

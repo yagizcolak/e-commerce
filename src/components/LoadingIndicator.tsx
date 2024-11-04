@@ -10,7 +10,7 @@ const LoadingIndicator: React.FC = () => (
       minHeight: '50vh',
     }}
   >
-    <CircularProgress />
+    <CircularProgress role="progressbar" />
   </Box>
 );
 
