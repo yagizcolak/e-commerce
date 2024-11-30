@@ -1,4 +1,4 @@
-# Crea Store
+# E-Commerce
 
 Crea Store is a React-based e-commerce application that allows users to browse products, view details, and add comments.
 
