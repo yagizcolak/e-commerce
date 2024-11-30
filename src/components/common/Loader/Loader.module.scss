@@ -1,0 +1,6 @@
+@use "../../../styles/variables" as *;
+
+.loader {
+  @include flex-center;
+  min-height: 50vh;
+}

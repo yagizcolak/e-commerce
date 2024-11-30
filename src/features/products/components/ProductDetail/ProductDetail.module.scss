@@ -1,0 +1,104 @@
+@use "../../../../styles/variables" as *;
+
+.productDetailContainer {
+  width: 90vw;
+  max-width: 75vw; // Adjust as needed
+  margin: auto;
+  margin-top: $spacing-unit * 2;
+  margin-bottom: $spacing-unit * 2;
+
+  .card {
+    box-shadow: $box-shadow-medium;
+    border-radius: $border-radius-medium;
+    overflow: hidden;
+
+    .contentBox {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-unit * 2;
+
+      @media (min-width: 1024px) {
+        flex-direction: row;
+      }
+
+      .leftBox {
+        flex: 1;
+        @include flex-center;
+        padding: $spacing-unit * 2;
+        width: 100%;
+
+        @media (min-width: 1024px) {
+          width: 50%;
+        }
+      }
+
+      .rightBox {
+        flex: 1;
+        padding: $spacing-unit * 2;
+        width: 100%;
+
+        @media (min-width: 1024px) {
+          width: 50%;
+        }
+
+        .tabs {
+          border-bottom: 0.5px solid var(--text-secondary-color);
+          margin-bottom: $spacing-unit * 2;
+
+          .tabLabel {
+            color: var(--text-primary-color);
+            font-size: 1rem;
+          }
+        }
+
+        .tabContent {
+          margin-top: $spacing-unit * 2;
+        }
+      }
+    }
+  }
+
+  // Responsive adjustments for smaller screens
+  @media (max-width: 1023px) {
+    .card {
+      .contentBox {
+        padding: $spacing-unit;
+
+        .leftBox,
+        .rightBox {
+          padding: $spacing-unit;
+        }
+
+        .tabs {
+          .tabLabel {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+
+  // Additional small screen adjustments
+  @media (max-width: 600px) {
+    .productDetailContainer {
+      width: 95vw;
+
+      .card {
+        .contentBox {
+          gap: $spacing-unit;
+
+          .leftBox,
+          .rightBox {
+            padding: $spacing-unit;
+          }
+
+          .tabs {
+            .tabLabel {
+              font-size: 0.85rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

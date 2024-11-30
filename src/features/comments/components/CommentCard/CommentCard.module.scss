@@ -1,0 +1,25 @@
+@use "../../../../styles/variables" as *;
+
+.commentCard {
+  padding: $spacing-unit * 2;
+  margin-bottom: $spacing-unit * 2;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .username {
+      font-weight: $font-weight-bold;
+    }
+
+    .date {
+      color: var(--text-secondary-color);
+    }
+  }
+
+  .content {
+    margin-top: $spacing-unit;
+    color: var(--text-primary-color);
+  }
+}

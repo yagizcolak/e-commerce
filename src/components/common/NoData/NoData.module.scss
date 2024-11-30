@@ -1,0 +1,9 @@
+@use "../../../styles/variables" as *;
+
+.noData {
+  @include flex-center;
+  height: 50vh;
+  .noDataText {
+    color: var(--text-primary-color);
+  }
+}

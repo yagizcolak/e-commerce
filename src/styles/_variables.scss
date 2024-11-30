@@ -1,0 +1,48 @@
+// src/styles/_variables.scss
+
+// Font Variables
+$font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+$font-size-small: 0.875rem; // 14px
+$font-size-base: 1rem;      // 16px
+$font-size-large: 1.25rem;  // 20px
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// Spacing Variables
+$spacing-unit: 8px;
+
+// Border Radius Variables
+$border-radius-small: 4px;
+$border-radius-medium: 8px;
+$border-radius-large: 16px;
+
+// Shadow Variables
+$box-shadow-default: 0px 1px 3px rgba(0, 0, 0, 0.2);
+$box-shadow-medium: 0px 3px 6px rgba(0, 0, 0, 0.16);
+$box-shadow-large: 0px 10px 20px rgba(0, 0, 0, 0.19);
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin transition($properties, $duration: 0.3s, $timing-function: ease-in-out) {
+  transition: $properties $duration $timing-function;
+}
+
+@mixin button-hover-scale {
+  @include transition(transform);
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+@mixin icon-spacing($spacing: $spacing-unit) {
+  margin-right: $spacing;
+  display: inline-flex;
+  align-items: center;
+}

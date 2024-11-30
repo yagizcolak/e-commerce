@@ -47,10 +47,9 @@ export const products: Product[] = [
     name: 'Check Pocket Overshirt',
     price: 59.99,
     rating: 4.5,
-    image: img1_1,
     images: [img1_1, img1_2, img1_3],
     description:
-      'A stylish overshirt featuring a classic check pattern and functional chest pockets, perfect for layering in cooler weather.',
+      'A stylish overshirt featuring a classic check pattern and functional chest pockets, perfect for layering in cooler weather. The timeless design makes it suitable for a variety of occasions, from casual outings to smart-casual gatherings. Crafted with premium-quality fabric, this overshirt provides warmth and comfort while maintaining a polished look. The versatile fit ensures it pairs well with jeans or chinos, adding a touch of rugged elegance to your wardrobe.',
     arrivalDate: '2023-10-01',
     comments: [
       {
@@ -75,10 +74,9 @@ export const products: Product[] = [
     name: 'Denim Jacket with Zip',
     price: 49.99,
     rating: 4,
-    image: img2_1,
     images: [img2_1, img2_2, img2_3],
     description:
-      'A classic denim jacket updated with a modern zip closure, perfect for layering over casual outfits.',
+      'A classic denim jacket updated with a modern zip closure, perfect for layering over casual outfits. The contemporary twist on a timeless piece ensures that you stay ahead of the style curve while enjoying the durability and versatility of denim. With its clean lines and tailored fit, this jacket can easily transition from daytime wear to evening looks. The high-quality zipper adds functionality and a modern edge, making it a must-have in any wardrobe.',
     arrivalDate: '2023-09-15',
     comments: [
       {
@@ -95,10 +93,9 @@ export const products: Product[] = [
     name: 'ZW Collection Check Shirt',
     price: 39.99,
     rating: 4,
-    image: img3_1,
     images: [img3_1, img3_2, img3_3, img3_4],
     description:
-      'A stylish check shirt from the ZW collection, offering a relaxed fit and comfortable wear.',
+      'A stylish check shirt from the ZW collection, offering a relaxed fit and comfortable wear. This shirt combines modern design with a classic check pattern, creating a versatile piece that works for both casual and semi-formal settings. The breathable fabric ensures all-day comfort, while the relaxed fit allows for ease of movement. Perfect for pairing with jeans or chinos, this shirt adds a touch of effortless style to any outfit, making it an essential part of your wardrobe.',
     arrivalDate: '2023-10-05',
     comments: [
       {
@@ -123,10 +120,9 @@ export const products: Product[] = [
     name: 'Dotted Mesh Shirt with Bows',
     price: 199.99,
     rating: 5,
-    image: img4_1,
     images: [img4_1, img4_2, img4_3, img4_4],
     description:
-      'An elegant dotted mesh shirt adorned with delicate bows, perfect for special occasions.',
+      'An elegant dotted mesh shirt adorned with delicate bows, perfect for special occasions. This piece exudes sophistication and charm, with intricate details that highlight its luxurious design. The lightweight mesh fabric ensures a comfortable fit, while the dotted pattern and bow accents add a feminine touch. Ideal for pairing with tailored trousers or a chic skirt, this shirt is a statement piece that will elevate any ensemble.',
     arrivalDate: '2023-08-20',
     comments: [
       {
@@ -143,10 +139,9 @@ export const products: Product[] = [
     name: 'Textured Check Shirt',
     price: 29.99,
     rating: 3.5,
-    image: img5_1,
     images: [img5_1, img5_2, img5_3],
     description:
-      'A textured check shirt offering a unique look and comfortable fit.',
+      'A textured check shirt offering a unique look and comfortable fit. The combination of a classic pattern with a textured finish sets this shirt apart, making it a standout addition to your casual wear collection. Designed with attention to detail, it provides a balance of style and practicality, ensuring a great fit and feel. Whether worn on its own or layered, this shirt is an excellent choice for anyone looking to add a touch of individuality to their wardrobe.',
     arrivalDate: '2023-11-01',
     comments: [
       {
@@ -172,10 +167,9 @@ export const products: Product[] = [
     name: 'Modal Blend Shirt',
     price: 49.99,
     rating: 4,
-    image: img6_1,
     images: [img6_1, img6_2, img6_3, img6_4],
     description:
-      'A soft modal blend shirt offering exceptional comfort and style for everyday wear.',
+      'A soft modal blend shirt offering exceptional comfort and style for everyday wear. The premium modal fabric provides a smooth, breathable texture that feels gentle against the skin, making it perfect for long hours of wear. With a versatile design, this shirt is easy to style for both casual and semi-formal occasions. Its modern cut ensures a flattering fit, while the durable construction guarantees lasting quality.',
     arrivalDate: '2023-12-01',
     comments: [
       {
@@ -192,10 +186,9 @@ export const products: Product[] = [
     name: 'Shoulder Bucket Bag',
     price: 39.99,
     rating: 4.5,
-    image: img7_1,
     images: [img7_1, img7_2],
     description:
-      'A trendy shoulder bucket bag, spacious enough for all your essentials, perfect for daily use.',
+      'A trendy shoulder bucket bag, spacious enough for all your essentials, perfect for daily use. Designed with both fashion and function in mind, this bag features a sturdy construction and a sleek silhouette that complements any outfit. The interior is roomy, with multiple compartments to keep your belongings organized, while the adjustable strap ensures comfortable carrying. Whether you’re running errands or heading out for a casual outing, this bag is a stylish and practical choice.',
     arrivalDate: '2023-12-01',
     comments: [
       {
@@ -221,10 +214,9 @@ export const products: Product[] = [
     name: 'Ankle Boots with Metallic Detail',
     price: 59.99,
     rating: 4,
-    image: img8_1,
     images: [img8_1, img8_2],
     description:
-      'Stylish ankle boots featuring metallic detailing, perfect for adding an edge to your outfit.',
+      'Stylish ankle boots featuring metallic detailing, perfect for adding an edge to your outfit. These boots are crafted with premium materials to ensure durability and comfort, making them suitable for extended wear. The metallic accents provide a modern touch that sets them apart, while the sturdy sole offers excellent support. Whether paired with jeans, skirts, or dresses, these boots make a bold fashion statement that elevates any look.',
     arrivalDate: '2023-12-01',
     comments: [
       {

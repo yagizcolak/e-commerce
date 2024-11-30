@@ -1,0 +1,6 @@
+@use "../../../styles/variables" as *;
+
+.customTextField {
+  font-family: $font-family;
+  font-size: $font-size-base;
+}

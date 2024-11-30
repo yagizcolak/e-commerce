@@ -1,0 +1,13 @@
+@use "../../../../styles/variables" as *;
+
+.productListContainer {
+  padding: $spacing-unit * 4;
+
+  .paginationContainer {
+    @include flex-center;
+    margin-top: $spacing-unit * 4;
+    .pagination {
+      color: var(--primary-color);
+    }
+  }
+}

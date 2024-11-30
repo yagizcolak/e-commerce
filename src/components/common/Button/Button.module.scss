@@ -1,0 +1,18 @@
+@use "../../../styles/_variables.scss" as *;
+
+.customButton {
+  text-transform: none;
+  font-weight: $font-weight-medium;
+  border-radius: 8px !important;
+
+  @include transition(background-color, 0.3s, ease);
+  @include transition(transform, 0.3s, ease);
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  .icon {
+    @include icon-spacing($spacing-unit);
+  }
+}

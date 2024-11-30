@@ -1,0 +1,42 @@
+@use "../../../styles/_variables.scss" as *;
+
+.currencySelectorWrapper {
+  position: relative;
+  display: inline-block;
+  margin-right: $spacing-unit; // 16px
+
+  .currencySelector {
+    width: 100%;
+    padding: 10px 40px 10px 16px; // Enhanced padding for better spacing
+    border: none;
+    border-radius: 8px; // More rounded corners for a modern look
+    background-color: var(--background-default);
+    color: var(--text-primary-color);
+    appearance: none; // Remove default arrow
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid var(--text-primary-color);
+    transform: translateY(-50%);
+    transition: border-top-color 0.3s, transform 0.3s;
+  }
+
+}

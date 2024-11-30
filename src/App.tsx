@@ -1,31 +1,27 @@
-import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import Login from './pages/Login';
-import ProductList from './pages/ProductList';
-import ProductDetail from './pages/ProductDetail';
-import PrivateRoute from './PrivateRoute';
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { Login, PrivateRoute } from "./features/auth";
+import { ProductList, ProductDetail } from "./features/products";
+import { Layout } from "./components";
 
 const App: React.FC = () => {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="/login" element={<Login />} />
       <Route
-        path="/products"
+        path="/products/*"
         element={
           <PrivateRoute>
-            <ProductList />
+            <Layout>
+              <Routes>
+                <Route path="" element={<ProductList />} />
+                <Route path=":id" element={<ProductDetail />} />
+              </Routes>
+            </Layout>
           </PrivateRoute>
         }
       />
-      <Route
-        path="/products/:id"
-        element={
-          <PrivateRoute>
-            <ProductDetail />
-          </PrivateRoute>
-        }
-      />
+      <Route path="/" element={<Navigate to="/products" replace />} />
     </Routes>
   );
 };

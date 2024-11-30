@@ -9,7 +9,9 @@ interface CurrencyContextType {
 
 export const CurrencyContext = createContext<CurrencyContextType>({
   currency: 'USD',
-  setCurrency: () => {},
+  setCurrency: () => {
+    throw new Error('setCurrency function must be overridden');
+  },
 });
 
 const CurrencyProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {

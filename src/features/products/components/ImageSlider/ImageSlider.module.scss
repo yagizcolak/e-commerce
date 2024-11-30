@@ -1,0 +1,97 @@
+/* src/components/ImageSlider/ImageSlider.module.scss */
+
+@use "../../../../styles/variables" as *;
+
+.sliderContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  &:hover .navButton {
+    opacity: 1;
+  }
+
+  .slide {
+    position: relative;
+    overflow: hidden;
+
+    &.withThumbnails {
+        width: calc(100% - 80px); // Apply only when thumbnails are present
+      }
+
+    .image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      opacity: 1;
+      @include transition(opacity, 0.3s, ease-in-out);
+
+      &.fade {
+        opacity: 0;
+      }
+    }
+  }
+
+  .thumbnailContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: $spacing-unit * 2;
+    gap: $spacing-unit;
+    height: 100%;
+
+    .navButton {
+      background-color: rgba(0, 0, 0, 0.2);
+      color: var(--white-color);
+      border: none;
+      border-radius: 50%;
+      padding: $spacing-unit / 2;
+      cursor: pointer;
+      @include transition(opacity, 0.3s);
+
+      @include flex-center;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      &.upButton {
+        margin-bottom: $spacing-unit;
+      }
+
+      &.downButton {
+        margin-top: $spacing-unit;
+      }
+    }
+
+    .thumbnails {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-unit;
+      overflow-y: auto;
+      flex-grow: 1;
+
+      /* Hide scrollbar */
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+
+      .thumbnail {
+        width: 60px;
+        height: 90px;
+        object-fit: cover;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: border-color 0.3s;
+        flex-shrink: 0;
+
+        &.activeThumbnail {
+          border-color: var(--primary-color);
+        }
+      }
+    }
+  }
+}

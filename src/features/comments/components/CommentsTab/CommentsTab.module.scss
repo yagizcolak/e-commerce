@@ -1,0 +1,12 @@
+@use "../../../../styles/variables" as *;
+
+.commentsTabContainer {
+  .noComment {
+    color: var(--text-secondary-color);
+  }
+
+  .commentsContainer {
+    max-height: 40vh;
+    overflow-y: auto;
+  }
+}

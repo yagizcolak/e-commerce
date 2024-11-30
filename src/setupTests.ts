@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 // src/setupTests.ts
 
 import '@testing-library/jest-dom';
+
+/*
 import * as util from 'util';
 
 // Polyfill TextEncoder and TextDecoder
@@ -17,6 +20,8 @@ Object.defineProperty(window, 'TextDecoder', {
 delete (window as any).location;
 window.location = { href: '' } as any;
 
+*/
+
 // Suppress console.error and console.warn
 beforeAll(() => {
     jest.spyOn(console, 'error').mockImplementation(() => { });
@@ -24,6 +29,6 @@ beforeAll(() => {
 });
 
 afterAll(() => {
-    (console.error as jest.Mock).mockRestore();
-    (console.warn as jest.Mock).mockRestore();
+    jest.restoreAllMocks();
 });
+

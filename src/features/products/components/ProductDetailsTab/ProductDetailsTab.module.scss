@@ -1,0 +1,50 @@
+@use "../../../../styles/variables" as *;
+
+.detailsTabContainer {
+  padding: $spacing-unit * 3; // p:3 = 24px
+  background-color: var(--background-color); // Dynamic based on theme
+  border-radius: $border-radius-medium; // 2 = 16px
+  box-shadow: $box-shadow-medium;
+
+  .title {
+    margin-bottom: $spacing-unit; // gutterBottom
+    color: var(--text-primary-color);
+  }
+
+  .price {
+    color: var(--primary-color);
+    margin-bottom: $spacing-unit;
+  }
+
+  .ratingContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: $spacing-unit * 2; // mb:2 = 16px
+
+    .ratingText {
+      margin-left: $spacing-unit / 2; // ml:1 = 4px
+      color: var(--text-secondary-color);
+    }
+  }
+
+  .infoGrid {
+    margin-bottom: $spacing-unit * 2; // mb:2 = 16px
+
+    .infoItemTitle {
+      color: var(--text-secondary-color);
+    }
+
+    .infoItemContent {
+      color: var(--text-primary-color);
+    }
+  }
+
+  .description {
+    .descriptionTitle {
+      color: var(--text-secondary-color);
+    }
+    .descriptionBody {
+      color: var(--text-primary-color);
+    }
+  }
+}
