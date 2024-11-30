@@ -12,8 +12,8 @@ Crea Store is a React-based e-commerce application that allows users to browse p
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/yagizcolak/crea-store.git
-   cd crea-store
+   git clone https://github.com/yagizcolak/e-commerce.git
+   cd e-commerce
    
 2. **Install Dependencies**
 
@@ -30,4 +30,4 @@ The application will run at http://localhost:3000. It should automatically open 
 4. **Testing the Application**
 
    ```bash
-   npm test
+   npm run test
