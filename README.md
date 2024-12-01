@@ -52,16 +52,29 @@ npm run test:coverage
 # Coverage Report
 Navigate to coverage/lcov-report/index.html and open it in a browser.
 ```
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/81f3bba6-022b-4af3-a589-4a8db2a87b1a" alt="unit_tests" />
+</div>
 
 - #### **4.2 E2E Tests**
 
 ```bash
 # Launch the Cypress Test Runner for interactive testing.
 npm run cypress:open
+```
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/c4eb8d8c-cc15-4a85-91ec-5cd8feb013da" alt="e2e" />
+</div>
 
+<br/>
+
+```bash
 # Execute all Cypress tests in headless mode
 npm run cypress:run
 ```
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/47b60a16-107a-41a9-9c5f-36ca785702a7" alt="cypress_run" />
+</div>
 
 ### **5. Key Features and Decisions**
 
@@ -78,8 +91,38 @@ npm run cypress:run
 - **Testing Strategy**
   - **Unit Testing with Jest and React Testing Library:** Ensured code reliability through comprehensive unit tests for components, services and utilities.
   - **End-to-End Testing with Cypress:** Validated user flows and interactions with E2E tests.
+ 
+### **6. Project Structure**
 
-### **6. Styling**
+```
+src/
+├── api/                   # API configurations and mock endpoints
+├── assets/                # Static assets (e.g. images, logos)
+├── components/            # Reusable components
+│   ├── common/            # Shared components
+│   └── layouts/           # Layout components
+├── context/               # Global state providers
+├── features/              # Feature-specific modules
+│   ├── auth/              # Authentication feature
+│   ├── comments/          # Comments feature
+│   ├── products/          # Products feature
+│   │   ├── components/    # Feature-specific components
+│   │   │   └── ProductCard/  # Example: ProductCard component
+│   │   │       ├── ProductCard.tsx
+│   │   │       ├── ProductCard.module.scss
+│   │   │       └── __tests__/
+│   │   │           └── ProductCard.test.tsx
+│   │   ├── hooks/         # Feature-specific hooks
+│   │   ├── services/      # API services for feature-specific data
+│   │   ├── types/         # TypeScript models
+│   │   └── utils/         # Utility functions
+├── styles/                # Global SCSS variables and themes
+├── types/                 # Shared TypeScript types
+├── utils/                 # General utilities
+```
+
+
+### **7. Styling**
 
 - #### **6.1 Theme Colors**
 
@@ -129,32 +172,3 @@ npm run cypress:run
 | `@mixin transition`         | Adds smooth transitions       | Accepts `$properties`, `$duration`, and `$timing-function` arguments   |
 | `@mixin button-hover-scale` | Adds hover scaling effect     | Includes the `transform` property and enlarges on hover                |
 | `@mixin icon-spacing`       | Adds spacing for icons        | Adds `margin-right` and aligns the icon with `inline-flex`             |
-
-### **7. Project Structure**
-
-```
-src/
-├── api/                   # API configurations and mock endpoints
-├── assets/                # Static assets (e.g. images, logos)
-├── components/            # Reusable components
-│   ├── common/            # Shared components
-│   └── layouts/           # Layout components
-├── context/               # Global state providers
-├── features/              # Feature-specific modules
-│   ├── auth/              # Authentication feature
-│   ├── comments/          # Comments feature
-│   ├── products/          # Products feature
-│   │   ├── components/    # Feature-specific components
-│   │   │   └── ProductCard/  # Example: ProductCard component
-│   │   │       ├── ProductCard.tsx
-│   │   │       ├── ProductCard.module.scss
-│   │   │       └── __tests__/
-│   │   │           └── ProductCard.test.tsx
-│   │   ├── hooks/         # Feature-specific hooks
-│   │   ├── services/      # API services for feature-specific data
-│   │   ├── types/         # TypeScript models
-│   │   └── utils/         # Utility functions
-├── styles/                # Global SCSS variables and themes
-├── types/                 # Shared TypeScript types
-├── utils/                 # General utilities
-```
