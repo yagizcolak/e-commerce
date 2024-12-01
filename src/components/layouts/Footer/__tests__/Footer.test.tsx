@@ -35,7 +35,7 @@ describe("Footer Component", () => {
   test("renders the footer with default message", () => {
     renderWithTheme("light");
     expect(
-      screen.getByText(/© \d{4} Your Company. All rights reserved./i)
+      screen.getByText(/© \d{4} all rights reserved./i)
     ).toBeInTheDocument();
   });
 

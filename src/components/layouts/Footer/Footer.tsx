@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
       }}
     >
       <Typography variant="body2" className={styles.footerText}>
-        &copy; {new Date().getFullYear()} Your Company. All rights reserved.
+        &copy; {new Date().getFullYear()} all rights reserved.
       </Typography>
     </Box>
   );

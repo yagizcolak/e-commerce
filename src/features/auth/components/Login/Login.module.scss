@@ -28,8 +28,11 @@
   align-items: center;
 
   .logo {
-    width: 6vw; // Adjust size as needed
+    width: 8vw;
     margin-bottom: $spacing-unit;
+    @media (max-width: 600px) {
+      width: 80px;
+    }
   }
 
   .loginForm {

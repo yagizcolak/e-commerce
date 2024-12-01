@@ -18,6 +18,9 @@
     .homeTypography {
       font-weight: $font-weight-bold;
       margin-top: $spacing-unit / 4;
+      @media (max-width: 600px) {
+        display: none;
+      }
     }
   }
 
@@ -45,6 +48,11 @@
 
     &:hover {
       transform: scale(1.05);
+    }
+    .logoutButtonText {    
+      @media (max-width: 600px) {
+        display: none;
+      }
     }
   }
 }

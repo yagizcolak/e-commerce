@@ -49,7 +49,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
   return (
     <AppBar position="fixed" elevation={4} className={styles.header}>
       <Toolbar>
-        {/* Home Button and "Crea" Text */}
+        {/* Home Button and "CREA" Text */}
         <Box className={styles.homeButtonContainer} onClick={handleHomeClick}>
           <IconButton
             className={styles.homeIconButton}
@@ -90,7 +90,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
           className={styles.logoutButton}
           data-testid="logout-button"
         >
-          Logout
+          <span className={styles.logoutButtonText}>Logout</span>
         </Button>
       </Toolbar>
     </AppBar>
