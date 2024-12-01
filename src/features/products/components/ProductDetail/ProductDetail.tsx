@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, {
   useState,
   useContext,
@@ -23,7 +24,7 @@ import styles from "./ProductDetail.module.scss";
 const ProductDetail: React.FC = () => {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
-  const productId = id ? parseInt(id, 10) : NaN;
+  const productId = parseInt(id!, 10);
   const selectedProductId = useMemo(
     () => sessionStorage.getItem("selectedProductId"),
     []
