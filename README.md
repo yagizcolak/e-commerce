@@ -76,7 +76,7 @@ npm run cypress:run
   <img src="https://github.com/user-attachments/assets/47b60a16-107a-41a9-9c5f-36ca785702a7" alt="cypress_run" />
 </div>
 
-### **5. Key Features and Decisions**
+## **Key Features and Decisions**
 
 - **Feature-Based File Structure:** Organized codebase by features (e.g., auth, products, comments) for better scalability and maintainability. Chose this structure to encapsulate related components, hooks, and services, making the codebase easier to navigate and scale. See: [bulletproof-react](https://github.com/alan2207/bulletproof-react)
 - **Styling Approach**
@@ -92,7 +92,7 @@ npm run cypress:run
   - **Unit Testing with Jest and React Testing Library:** Ensured code reliability through comprehensive unit tests for components, services and utilities.
   - **End-to-End Testing with Cypress:** Validated user flows and interactions with E2E tests.
  
-### **6. Project Structure**
+## **Project Structure**
 
 ```
 src/
@@ -122,7 +122,7 @@ src/
 ```
 
 
-### **7. Styling**
+## **Styling**
 
 - #### **6.1 Theme Colors**
 
