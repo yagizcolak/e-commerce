@@ -11,7 +11,7 @@ import { Comment } from '../types/Comment';
 import { JWT_SECRET } from '../config';
 
 // Initialize mock adapter
-const mock = new MockAdapter(axiosInstance, { delayResponse: 200 });
+const mock = new MockAdapter(axiosInstance, { delayResponse: 150 });
 
 // Function to get product data from sessionStorage or initialize it
 const getProductData = () => {

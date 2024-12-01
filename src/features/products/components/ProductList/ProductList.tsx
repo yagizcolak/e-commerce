@@ -58,7 +58,7 @@ const ProductList: React.FC = () => {
     return <Loader />;
   }
 
-  if (products.length === 0) {
+  if (!loading && products.length === 0) {
     return <NoData message="No products available." />;
   }
 

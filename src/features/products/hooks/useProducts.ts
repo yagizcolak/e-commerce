@@ -12,7 +12,7 @@ interface UseProductsProps {
 
 const useProducts = ({ showNotification }: UseProductsProps) => {
   const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const loadProducts = async () => {
