@@ -52,16 +52,29 @@ npm run test:coverage
 # Coverage Report
 Navigate to coverage/lcov-report/index.html and open it in a browser.
 ```
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/81f3bba6-022b-4af3-a589-4a8db2a87b1a" alt="unit_tests" />
+</div>
 
 - #### **4.2 E2E Tests**
 
 ```bash
 # Launch the Cypress Test Runner for interactive testing.
 npm run cypress:open
+```
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/c4eb8d8c-cc15-4a85-91ec-5cd8feb013da" alt="e2e" />
+</div>
 
+<br/>
+
+```bash
 # Execute all Cypress tests in headless mode
 npm run cypress:run
 ```
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/47b60a16-107a-41a9-9c5f-36ca785702a7" alt="cypress_run" />
+</div>
 
 ### **5. Key Features and Decisions**
 
