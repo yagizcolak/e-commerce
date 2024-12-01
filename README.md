@@ -83,26 +83,26 @@ npm run cypress:run
 
 - #### **6.1 Theme Colors**
 
-| Property            | Color Name                 | Light Mode Value                              | Dark Mode Value                              |
-|---------------------|----------------------------|-----------------------------------------------|---------------------------------------------|
-| Primary Colors      | `--primary-color`          | `#1976d2` <span style="display:inline-block;width:10px;height:10px;background-color:#1976d2;border-radius:50%;margin-left:5px;"></span> | `#1976d2` <span style="display:inline-block;width:10px;height:10px;background-color:#1976d2;border-radius:50%;margin-left:5px;"></span> |
-|                     | `--primary-color-light`    | `#63a4ff` <span style="display:inline-block;width:10px;height:10px;background-color:#63a4ff;border-radius:50%;margin-left:5px;"></span> | `#63a4ff` <span style="display:inline-block;width:10px;height:10px;background-color:#63a4ff;border-radius:50%;margin-left:5px;"></span> |
-|                     | `--primary-color-dark`     | `#004ba0` <span style="display:inline-block;width:10px;height:10px;background-color:#004ba0;border-radius:50%;margin-left:5px;"></span> | `#004ba0` <span style="display:inline-block;width:10px;height:10px;background-color:#004ba0;border-radius:50%;margin-left:5px;"></span> |
-| Secondary Colors    | `--secondary-color`        | `#9c27b0` <span style="display:inline-block;width:10px;height:10px;background-color:#9c27b0;border-radius:50%;margin-left:5px;"></span> | `#9c27b0` <span style="display:inline-block;width:10px;height:10px;background-color:#9c27b0;border-radius:50%;margin-left:5px;"></span> |
-|                     | `--secondary-color-light`  | `#d05ce3` <span style="display:inline-block;width:10px;height:10px;background-color:#d05ce3;border-radius:50%;margin-left:5px;"></span> | `#d05ce3` <span style="display:inline-block;width:10px;height:10px;background-color:#d05ce3;border-radius:50%;margin-left:5px;"></span> |
-|                     | `--secondary-color-dark`   | `#6a0080` <span style="display:inline-block;width:10px;height:10px;background-color:#6a0080;border-radius:50%;margin-left:5px;"></span> | `#6a0080` <span style="display:inline-block;width:10px;height:10px;background-color:#6a0080;border-radius:50%;margin-left:5px;"></span> |
-| Error Colors        | `--error-color`            | `#f44336` <span style="display:inline-block;width:10px;height:10px;background-color:#f44336;border-radius:50%;margin-left:5px;"></span> | `#f44336` <span style="display:inline-block;width:10px;height:10px;background-color:#f44336;border-radius:50%;margin-left:5px;"></span> |
-|                     | `--error-color-light`      | `#ff7961` <span style="display:inline-block;width:10px;height:10px;background-color:#ff7961;border-radius:50%;margin-left:5px;"></span> | `#ff7961` <span style="display:inline-block;width:10px;height:10px;background-color:#ff7961;border-radius:50%;margin-left:5px;"></span> |
-|                     | `--error-color-dark`       | `#ba000d` <span style="display:inline-block;width:10px;height:10px;background-color:#ba000d;border-radius:50%;margin-left:5px;"></span> | `#ba000d` <span style="display:inline-block;width:10px;height:10px;background-color:#ba000d;border-radius:50%;margin-left:5px;"></span> |
-| Warning Colors      | `--warning-color`          | `#ffa726` <span style="display:inline-block;width:10px;height:10px;background-color:#ffa726;border-radius:50%;margin-left:5px;"></span> | `#ffa726` <span style="display:inline-block;width:10px;height:10px;background-color:#ffa726;border-radius:50%;margin-left:5px;"></span> |
-| Info Colors         | `--info-color`             | `#29b6f6` <span style="display:inline-block;width:10px;height:10px;background-color:#29b6f6;border-radius:50%;margin-left:5px;"></span> | `#29b6f6` <span style="display:inline-block;width:10px;height:10px;background-color:#29b6f6;border-radius:50%;margin-left:5px;"></span> |
-| Success Colors      | `--success-color`          | `#66bb6a` <span style="display:inline-block;width:10px;height:10px;background-color:#66bb6a;border-radius:50%;margin-left:5px;"></span> | `#66bb6a` <span style="display:inline-block;width:10px;height:10px;background-color:#66bb6a;border-radius:50%;margin-left:5px;"></span> |
-| Background Colors   | `--background-color`       | `#ffffff` <span style="display:inline-block;width:10px;height:10px;background-color:#ffffff;border-radius:50%;margin-left:5px;"></span> | `#1d1d1d` <span style="display:inline-block;width:10px;height:10px;background-color:#1d1d1d;border-radius:50%;margin-left:5px;"></span> |
-|                     | `--background-default`     | `#f0f0f0` <span style="display:inline-block;width:10px;height:10px;background-color:#f0f0f0;border-radius:50%;margin-left:5px;"></span> | `#121212` <span style="display:inline-block;width:10px;height:10px;background-color:#121212;border-radius:50%;margin-left:5px;"></span> |
-| Text Colors         | `--text-primary-color`     | `#212121` <span style="display:inline-block;width:10px;height:10px;background-color:#212121;border-radius:50%;margin-left:5px;"></span> | `#ffffff` <span style="display:inline-block;width:10px;height:10px;background-color:#ffffff;border-radius:50%;margin-left:5px;"></span> |
-|                     | `--text-secondary-color`   | `#757575` <span style="display:inline-block;width:10px;height:10px;background-color:#757575;border-radius:50%;margin-left:5px;"></span> | `#757575` <span style="display:inline-block;width:10px;height:10px;background-color:#757575;border-radius:50%;margin-left:5px;"></span> |
-| Common Colors       | `--white-color`            | `#ffffff` <span style="display:inline-block;width:10px;height:10px;background-color:#ffffff;border-radius:50%;margin-left:5px;"></span> | `#ffffff` <span style="display:inline-block;width:10px;height:10px;background-color:#ffffff;border-radius:50%;margin-left:5px;"></span> |
-|                     | `--black-color`            | `#000000` <span style="display:inline-block;width:10px;height:10px;background-color:#000000;border-radius:50%;margin-left:5px;"></span> | `#000000` <span style="display:inline-block;width:10px;height:10px;background-color:#000000;border-radius:50%;margin-left:5px;"></span> |
+| Property          | Color Name                | Light Mode Value | Dark Mode Value |
+| ----------------- | ------------------------- | ---------------- | --------------- |
+| Primary Colors    | `--primary-color`         | `#1976d2`        | `#1976d2`       |
+|                   | `--primary-color-light`   | `#63a4ff`        | `#63a4ff`       |
+|                   | `--primary-color-dark`    | `#004ba0`        | `#004ba0`       |
+| Secondary Colors  | `--secondary-color`       | `#9c27b0`        | `#9c27b0`       |
+|                   | `--secondary-color-light` | `#d05ce3`        | `#d05ce3`       |
+|                   | `--secondary-color-dark`  | `#6a0080`        | `#6a0080`       |
+| Error Colors      | `--error-color`           | `#f44336`        | `#f44336`       |
+|                   | `--error-color-light`     | `#ff7961`        | `#ff7961`       |
+|                   | `--error-color-dark`      | `#ba000d`        | `#ba000d`       |
+| Warning Colors    | `--warning-color`         | `#ffa726`        | `#ffa726`       |
+| Info Colors       | `--info-color`            | `#29b6f6`        | `#29b6f6`       |
+| Success Colors    | `--success-color`         | `#66bb6a`        | `#66bb6a`       |
+| Background Colors | `--background-color`      | `#ffffff`        | `#1d1d1d`       |
+|                   | `--background-default`    | `#f0f0f0`        | `#121212`       |
+| Text Colors       | `--text-primary-color`    | `#212121`        | `#ffffff`       |
+|                   | `--text-secondary-color`  | `#757575`        | `#757575`       |
+| Common Colors     | `--white-color`           | `#ffffff`        | `#ffffff`       |
+|                   | `--black-color`           | `#000000`        | `#000000`       |
 
 - #### **6.2 SCSS Variables & Mixins**
   | **Category**  | **Variable Name**       | **Value**                                    |
