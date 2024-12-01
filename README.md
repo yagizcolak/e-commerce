@@ -172,3 +172,18 @@ src/
 | `@mixin transition`         | Adds smooth transitions       | Accepts `$properties`, `$duration`, and `$timing-function` arguments   |
 | `@mixin button-hover-scale` | Adds hover scaling effect     | Includes the `transform` property and enlarges on hover                |
 | `@mixin icon-spacing`       | Adds spacing for icons        | Adds `margin-right` and aligns the icon with `inline-flex`             |
+
+
+## **Deployment**
+
+Deployment
+
+The application is deployed on Render and is accessible at:
+
+🔗 https://e-commerce-bemp.onrender.com
+
+Key Points
+
+*	Continuous Deployment: Automatically deploys updates from the main branch on GitHub.
+*	Environment Variables: Currently, the .env file is pushed to GitHub for this project. In a real-world scenario, sensitive information should be managed securely and not committed to the repository. They are added to Render's environmental variables.
+*	Routing Configuration: Fixed routing issues by adding a rewrite rule that directs all routing requests to index.html.
