@@ -46,7 +46,6 @@ mock.onPost('/login').reply(async (config) => {
 
         return [200, { token }];
     } else {
-        console.log("error bro")
         return [401, { message: 'Invalid username or password' }];
     }
 });
