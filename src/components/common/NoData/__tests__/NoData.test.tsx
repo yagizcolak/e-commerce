@@ -1,5 +1,3 @@
-// src/components/common/NoData/__tests__/NoData.test.tsx
-
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import NoData from "../NoData";

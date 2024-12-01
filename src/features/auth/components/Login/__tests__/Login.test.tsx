@@ -1,5 +1,3 @@
-// src/features/auth/components/Login/__tests__/Login.test.tsx
-
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import Login from "../Login";

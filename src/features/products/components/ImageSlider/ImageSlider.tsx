@@ -3,15 +3,25 @@ import styles from "./ImageSlider.module.scss";
 import { KeyboardArrowUp, KeyboardArrowDown } from "@mui/icons-material";
 
 interface ImageSliderProps {
+  /** Array of image URLs */
   images: string[];
+  /** Alt text for images */
   altText?: string;
+  /** Time interval for auto-slide (ms) */
   interval?: number;
+  /** Show navigation buttons */
   showNavigation?: boolean;
+  /** Show thumbnail images */
   showThumbnails?: boolean;
+  /** Enable automatic sliding */
   autoSlide?: boolean;
+  /** Slide on hover */
   slideOnHover?: boolean;
 }
 
+/**
+ * `ImageSlider` displays a carousel of images with optional navigation and thumbnails.
+ */
 const ImageSlider: React.FC<ImageSliderProps> = ({
   images,
   altText = "Image",
@@ -39,7 +49,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
       setFade(false);
-    }, 300); // Duration of fade effect in milliseconds
+    }, 300); // Fade duration
   }, [images.length]);
 
   const prevSlide = useCallback(() => {
@@ -119,10 +129,10 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
         />
       </div>
 
-      {/* Thumbnails and Navigation Buttons */}
+      {/* Thumbnails and Navigation */}
       {showThumbnails && images.length > 1 && (
         <div className={styles.thumbnailContainer}>
-          {/* Up Button */}
+          {/* Previous Button */}
           {showNavigation && (
             <button
               className={`${styles.navButton} ${styles.upButton}`}
@@ -150,7 +160,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
             ))}
           </div>
 
-          {/* Down Button */}
+          {/* Next Button */}
           {showNavigation && (
             <button
               className={`${styles.navButton} ${styles.downButton}`}

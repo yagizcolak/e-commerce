@@ -1,27 +1,36 @@
-import React, { createContext, useMemo, useState, useEffect } from 'react';
+import React, { createContext, useMemo, useState, useEffect } from "react";
 
-export type Currency = 'USD' | 'EUR' | 'TRY';
+/** Supported currency types */
+export type Currency = "USD" | "EUR" | "TRY";
 
+/** Shape of the CurrencyContext */
 interface CurrencyContextType {
+  /** Current selected currency */
   currency: Currency;
+  /** Function to update the currency */
   setCurrency: (currency: Currency) => void;
 }
 
 export const CurrencyContext = createContext<CurrencyContextType>({
-  currency: 'USD',
+  currency: "USD",
   setCurrency: () => {
-    throw new Error('setCurrency function must be overridden');
+    throw new Error("setCurrency function must be overridden");
   },
 });
 
-const CurrencyProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+/**
+ * `CurrencyProvider` manages and provides currency state to its children.
+ */
+const CurrencyProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [currency, setCurrency] = useState<Currency>(() => {
-    const savedCurrency = localStorage.getItem('currency') as Currency;
-    return savedCurrency || 'USD';
+    const savedCurrency = localStorage.getItem("currency") as Currency;
+    return savedCurrency || "USD";
   });
 
   useEffect(() => {
-    localStorage.setItem('currency', currency);
+    localStorage.setItem("currency", currency);
   }, [currency]);
 
   const value = useMemo(() => ({ currency, setCurrency }), [currency]);

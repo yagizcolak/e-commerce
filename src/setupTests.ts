@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-// src/setupTests.ts
 
 import '@testing-library/jest-dom';
 

@@ -1,5 +1,3 @@
-// src/features/comments/components/CommentCard/__tests__/CommentCard.test.tsx
-
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import CommentCard from "../CommentCard";

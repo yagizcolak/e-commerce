@@ -62,7 +62,6 @@ const ProductDetail: React.FC = () => {
     setActiveTab(newValue);
   };
 
-  // Show loader during data fetching or comment addition
   if (loading || addingComment) {
     return <Loader />;
   }
@@ -78,7 +77,6 @@ const ProductDetail: React.FC = () => {
           <Box className={styles.contentBox}>
             {/* Left: Product Image */}
             <Box className={styles.leftBox}>
-              {/* <ImageSlider images={product.images} altText={product.name} /> */}
               <ImageSlider
                 images={product.images}
                 altText={product.name}

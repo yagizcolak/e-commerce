@@ -1,5 +1,3 @@
-// src/components/layouts/Header/Header.tsx
-
 import React, { useContext } from "react";
 import { AppBar, Toolbar, IconButton, Box } from "@mui/material";
 import {
@@ -19,6 +17,9 @@ interface HeaderProps {
   title?: string;
 }
 
+/**
+ * `Header` displays the navigation bar with home, currency selector, theme toggle, and logout.
+ */
 const Header: React.FC<HeaderProps> = ({ title }) => {
   const authContext = useContext(AuthContext);
   const colorMode = useContext(ColorModeContext);
@@ -66,7 +67,11 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
         <Box className={styles.spacer} />
 
         {/* Currency Selector */}
-        <CurrencySelector value={currency} onChange={handleCurrencyChange} data-testid="currency-selector" />
+        <CurrencySelector
+          value={currency}
+          onChange={handleCurrencyChange}
+          data-testid="currency-selector"
+        />
 
         {/* Dark Mode Toggle */}
         <Box className={styles.darkModeToggle}>

@@ -1,5 +1,3 @@
-// src/components/layouts/Footer/__tests__/Footer.test.tsx
-
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import Footer from "../Footer";
@@ -42,7 +40,6 @@ describe("Footer Component", () => {
   test("applies light mode styles correctly", () => {
     renderWithTheme("light");
 
-    // Find the footer element using the test ID
     const footerElement = screen.getByTestId("footer");
 
     expect(footerElement).toHaveStyle("background-color: #1976d2");
@@ -52,7 +49,6 @@ describe("Footer Component", () => {
   test("applies dark mode styles correctly", () => {
     renderWithTheme("dark");
 
-    // Find the footer element using the test ID
     const footerElement = screen.getByTestId("footer");
 
     expect(footerElement).toHaveStyle("background-color: #ffffff");

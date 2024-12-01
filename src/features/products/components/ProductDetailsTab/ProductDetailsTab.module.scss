@@ -1,13 +1,13 @@
 @use "../../../../styles/variables" as *;
 
 .detailsTabContainer {
-  padding: $spacing-unit * 3; // p:3 = 24px
-  background-color: var(--background-color); // Dynamic based on theme
-  border-radius: $border-radius-medium; // 2 = 16px
+  padding: $spacing-unit * 3;
+  background-color: var(--background-color);
+  border-radius: $border-radius-medium;
   box-shadow: $box-shadow-medium;
 
   .title {
-    margin-bottom: $spacing-unit; // gutterBottom
+    margin-bottom: $spacing-unit;
     color: var(--text-primary-color);
   }
 
@@ -19,16 +19,16 @@
   .ratingContainer {
     display: flex;
     align-items: center;
-    margin-bottom: $spacing-unit * 2; // mb:2 = 16px
+    margin-bottom: $spacing-unit * 2;
 
     .ratingText {
-      margin-left: $spacing-unit / 2; // ml:1 = 4px
+      margin-left: $spacing-unit / 2;
       color: var(--text-secondary-color);
     }
   }
 
   .infoGrid {
-    margin-bottom: $spacing-unit * 2; // mb:2 = 16px
+    margin-bottom: $spacing-unit * 2;
 
     .infoItemTitle {
       color: var(--text-secondary-color);

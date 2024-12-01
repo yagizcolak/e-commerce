@@ -1,5 +1,3 @@
-// src/components/layouts/Footer/Footer.tsx
-
 import React from "react";
 import { Box } from "@mui/material";
 import { Typography } from "../../common";

@@ -1,5 +1,3 @@
-// src/features/products/components/ProductList/ProductList.tsx
-
 import React, { useContext, useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Grid2, Pagination } from "@mui/material";
@@ -22,7 +20,6 @@ const ProductList: React.FC = () => {
     [showNotification]
   );
 
-  // Move sessionStorage removal to useEffect
   useEffect(() => {
     sessionStorage.removeItem("selectedProductId");
   }, []);

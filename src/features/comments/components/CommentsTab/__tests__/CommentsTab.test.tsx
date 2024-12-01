@@ -1,5 +1,3 @@
-// src/features/comments/components/CommentsTab/__tests__/CommentsTab.test.tsx
-
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import CommentsTab from "../CommentsTab";

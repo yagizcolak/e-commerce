@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-// src/components/common/CurrencySelector/__tests__/CurrencySelector.test.tsx
 
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
@@ -48,5 +47,4 @@ describe("CurrencySelector Component", () => {
     const select = screen.getByRole("combobox");
     expect(select).toBeEnabled();
   });
-
 });

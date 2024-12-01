@@ -1,12 +1,10 @@
-// src/features/products/components/ImageSlider/__tests__/ImageSlider.test.tsx
-
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import ImageSlider from "../ImageSlider";
 
 /*
 
-The issue with line 82 (nextSlide();) not being covered stems from the fact that 
+The issue with line 92 (nextSlide();) not being covered stems from the fact that 
 the setTimeout callback might not be executing within the test’s lifecycle, 
 especially with real timers and asynchronous delays. 
 The coverage tool only records lines that are executed during the test run.

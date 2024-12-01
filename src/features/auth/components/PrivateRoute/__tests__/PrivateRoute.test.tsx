@@ -1,5 +1,3 @@
-// src/features/auth/components/PrivateRoute/__tests__/PrivateRoute.test.tsx
-
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import PrivateRoute from "../PrivateRoute";

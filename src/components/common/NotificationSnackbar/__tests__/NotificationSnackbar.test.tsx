@@ -1,11 +1,9 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-// src/components/common/NotificationSnackbar/__tests__/NotificationSnackbar.test.tsx
 
 import React from 'react';
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
 import NotificationSnackbar from '../NotificationSnackbar';
 
-// Mock the Grow component to render children directly
 jest.mock('@mui/material/Grow', () => ({ children }: { children: React.ReactElement }) => children);
 
 describe('NotificationSnackbar Component', () => {
@@ -90,6 +88,5 @@ describe('NotificationSnackbar Component', () => {
     );
     const snackbar = screen.getByTestId('notification-snackbar');
     expect(snackbar).toBeInTheDocument();
-    // Additional position-related checks can be added if necessary
   });
 });

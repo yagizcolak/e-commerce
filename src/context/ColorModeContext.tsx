@@ -1,47 +1,55 @@
-// src/context/ColorModeContext.tsx
+import React, { createContext, useMemo, useState, useEffect } from "react";
+import { ThemeProvider, createTheme, PaletteMode } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import { themeColors } from "../styles/themeColors";
 
-import React, { createContext, useMemo, useState, useEffect } from 'react';
-import { ThemeProvider, createTheme, PaletteMode } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { themeColors } from '../styles/themeColors';
-
+/** Defines the shape of ColorModeContext */
 interface ColorModeContextType {
+  /** Current theme mode */
   mode: PaletteMode;
+  /** Function to toggle theme mode */
   toggleColorMode: () => void;
+  /** Function to set theme mode */
   setMode: (mode: PaletteMode) => void;
 }
 
+/** Creates ColorModeContext with default values */
 export const ColorModeContext = createContext<ColorModeContextType>({
-  mode: 'light',
+  mode: "light",
   toggleColorMode: () => {
-    throw new Error('toggleColorMode function must be overridden');
+    throw new Error("toggleColorMode function must be overridden");
   },
   setMode: () => {
-    throw new Error('setMode function must be overridden');
+    throw new Error("setMode function must be overridden");
   },
 });
 
-const CustomThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const CustomThemeProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [mode, setMode] = useState<PaletteMode>(() => {
-    const savedMode = sessionStorage.getItem('colorMode') as PaletteMode;
-    return savedMode || 'light';
+    const savedMode = sessionStorage.getItem("colorMode") as PaletteMode;
+    return savedMode || "light";
   });
 
   useEffect(() => {
-    sessionStorage.setItem('colorMode', mode);
+    sessionStorage.setItem("colorMode", mode);
   }, [mode]);
 
   const colorMode = useMemo(
     () => ({
       mode,
       toggleColorMode: () => {
-        setMode((prevMode: PaletteMode) => (prevMode === 'light' ? 'dark' : 'light'));
+        setMode((prevMode: PaletteMode) =>
+          prevMode === "light" ? "dark" : "light"
+        );
       },
       setMode,
     }),
-    [mode],
+    [mode]
   );
 
+  /** Create MUI theme based on current mode */
   const theme = useMemo(
     () =>
       createTheme({
@@ -79,17 +87,19 @@ const CustomThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children
           },
           background: {
             default:
-              mode === 'light'
+              mode === "light"
                 ? themeColors.backgroundDefaultLight
                 : themeColors.backgroundDefaultDark,
             paper:
-              mode === 'light'
+              mode === "light"
                 ? themeColors.backgroundPaperLight
                 : themeColors.backgroundPaperDark,
           },
           text: {
             primary:
-              mode === 'light' ? themeColors.textPrimaryLight : themeColors.textPrimaryDark,
+              mode === "light"
+                ? themeColors.textPrimaryLight
+                : themeColors.textPrimaryDark,
             secondary: themeColors.textSecondary,
           },
           common: {
@@ -103,44 +113,59 @@ const CustomThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children
             fontWeight: 700,
           },
           button: {
-            textTransform: 'none',
+            textTransform: "none",
           },
         },
       }),
-    [mode],
+    [mode]
   );
 
-  // Inject CSS variables based on the theme
+  /** Inject CSS variables based on theme */
   useEffect(() => {
     const root = document.documentElement;
 
-    // Define CSS variables for colors
-    root.style.setProperty('--primary-color', theme.palette.primary.main);
-    root.style.setProperty('--primary-color-light', theme.palette.primary.light);
-    root.style.setProperty('--primary-color-dark', theme.palette.primary.dark);
+    root.style.setProperty("--primary-color", theme.palette.primary.main);
+    root.style.setProperty(
+      "--primary-color-light",
+      theme.palette.primary.light
+    );
+    root.style.setProperty("--primary-color-dark", theme.palette.primary.dark);
 
-    root.style.setProperty('--secondary-color', theme.palette.secondary.main);
-    root.style.setProperty('--secondary-color-light', theme.palette.secondary.light);
-    root.style.setProperty('--secondary-color-dark', theme.palette.secondary.dark);
+    root.style.setProperty("--secondary-color", theme.palette.secondary.main);
+    root.style.setProperty(
+      "--secondary-color-light",
+      theme.palette.secondary.light
+    );
+    root.style.setProperty(
+      "--secondary-color-dark",
+      theme.palette.secondary.dark
+    );
 
-    root.style.setProperty('--error-color', theme.palette.error.main);
-    root.style.setProperty('--error-color-light', theme.palette.error.light);
-    root.style.setProperty('--error-color-dark', theme.palette.error.dark);
+    root.style.setProperty("--error-color", theme.palette.error.main);
+    root.style.setProperty("--error-color-light", theme.palette.error.light);
+    root.style.setProperty("--error-color-dark", theme.palette.error.dark);
 
-    root.style.setProperty('--warning-color', theme.palette.warning.main);
-    root.style.setProperty('--info-color', theme.palette.info.main);
-    root.style.setProperty('--success-color', theme.palette.success.main);
+    root.style.setProperty("--warning-color", theme.palette.warning.main);
+    root.style.setProperty("--info-color", theme.palette.info.main);
+    root.style.setProperty("--success-color", theme.palette.success.main);
 
-    root.style.setProperty('--background-color', theme.palette.background.paper);
-    root.style.setProperty('--background-default', theme.palette.background.default);
+    root.style.setProperty(
+      "--background-color",
+      theme.palette.background.paper
+    );
+    root.style.setProperty(
+      "--background-default",
+      theme.palette.background.default
+    );
 
-    root.style.setProperty('--text-primary-color', theme.palette.text.primary);
-    root.style.setProperty('--text-secondary-color', theme.palette.text.secondary);
+    root.style.setProperty("--text-primary-color", theme.palette.text.primary);
+    root.style.setProperty(
+      "--text-secondary-color",
+      theme.palette.text.secondary
+    );
 
-    root.style.setProperty('--white-color', theme.palette.common.white);
-    root.style.setProperty('--black-color', theme.palette.common.black);
-
-    // Add more variables as needed
+    root.style.setProperty("--white-color", theme.palette.common.white);
+    root.style.setProperty("--black-color", theme.palette.common.black);
   }, [theme]);
 
   return (

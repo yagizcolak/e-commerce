@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-// src/api/mockApi.ts
 
 import MockAdapter from 'axios-mock-adapter';
 import axiosInstance from './axiosInstance';

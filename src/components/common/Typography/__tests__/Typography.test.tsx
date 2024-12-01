@@ -1,5 +1,3 @@
-// src/components/common/Typography/__tests__/Typography.test.tsx
-
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import Typography from "../Typography";

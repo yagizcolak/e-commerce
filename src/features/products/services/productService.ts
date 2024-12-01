@@ -1,4 +1,3 @@
-// src/features/products/services/productService.ts
 import axiosInstance from '../../../api/axiosInstance';
 import { Product } from '../../../types/Product';
 

@@ -1,5 +1,3 @@
-// src/features/auth/hooks/useLoginForm.ts
-
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useAuth } from './useAuth';

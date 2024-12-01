@@ -1,43 +1,35 @@
 import { Product } from '../types/Product';
 
-// Import images for Product 1
 import img1_1 from '../assets/images/1/1.jpg';
 import img1_2 from '../assets/images/1/2.jpg';
 import img1_3 from '../assets/images/1/3.jpg';
 
-// Import images for Product 2
 import img2_1 from '../assets/images/2/1.jpg';
 import img2_2 from '../assets/images/2/2.jpg';
 import img2_3 from '../assets/images/2/3.jpg';
 
-// Import images for Product 3
 import img3_1 from '../assets/images/3/1.jpg';
 import img3_2 from '../assets/images/3/2.jpg';
 import img3_3 from '../assets/images/3/3.jpg';
 import img3_4 from '../assets/images/3/4.jpg';
 
-// Import images for Product 4
 import img4_1 from '../assets/images/4/1.jpg';
 import img4_2 from '../assets/images/4/2.jpg';
 import img4_3 from '../assets/images/4/3.jpg';
 import img4_4 from '../assets/images/4/4.jpg';
 
-// Import images for Product 5
 import img5_1 from '../assets/images/5/1.jpg';
 import img5_2 from '../assets/images/5/2.jpg';
 import img5_3 from '../assets/images/5/3.jpg';
 
-// Import images for Product 6
 import img6_1 from '../assets/images/6/1.jpg';
 import img6_2 from '../assets/images/6/2.jpg';
 import img6_3 from '../assets/images/6/3.jpg';
 import img6_4 from '../assets/images/6/4.jpg';
 
-// Import images for Product 7
 import img7_1 from '../assets/images/7/1.jpg';
 import img7_2 from '../assets/images/7/2.jpg';
 
-// Import images for Product 8
 import img8_1 from '../assets/images/8/1.jpg';
 import img8_2 from '../assets/images/8/2.jpg';
 

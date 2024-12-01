@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-var-requires */
-// src/features/products/components/ProductList/__tests__/ProductList.test.tsx
 
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";

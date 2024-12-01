@@ -1,5 +1,3 @@
-// src/features/auth/services/authService.test.ts
-
 import axiosInstance from '../../../../api/axiosInstance';
 import { login } from '../authService';
 

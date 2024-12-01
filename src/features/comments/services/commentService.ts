@@ -1,5 +1,3 @@
-// src/features/comments/services/commentService.ts
-
 import axiosInstance from '../../../api/axiosInstance';
 import { Comment } from '../../../types/Comment';
 

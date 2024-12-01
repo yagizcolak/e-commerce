@@ -1,20 +1,20 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 import {
   Typography as MUITypography,
   TypographyProps as MUITypographyProps,
-} from '@mui/material';
-import styles from './Typography.module.scss';
+} from "@mui/material";
+import styles from "./Typography.module.scss";
 
-type TypographyProps = MUITypographyProps
+/** Props for Typography component */
+type TypographyProps = MUITypographyProps;
 
-const Typography: FC<TypographyProps> = ({
-  children,
-  className,
-  ...props
-}) => {
+/**
+ * `Typography` wraps MUI's Typography with custom styles.
+ */
+const Typography: FC<TypographyProps> = ({ children, className, ...props }) => {
   return (
     <MUITypography
-      className={`${styles.customTypography} ${className || ''}`}
+      className={`${styles.customTypography} ${className || ""}`}
       {...props}
     >
       {children}

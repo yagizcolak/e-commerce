@@ -1,5 +1,3 @@
-// src/components/layouts/Header/__tests__/Header.test.tsx
-
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import Header from "../Header";

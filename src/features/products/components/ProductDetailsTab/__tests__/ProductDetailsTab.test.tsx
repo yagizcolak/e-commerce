@@ -1,5 +1,3 @@
-// src/features/products/components/ProductDetailsTab/__tests__/ProductDetailsTab.test.tsx
-
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import ProductDetailsTab from "../ProductDetailsTab";

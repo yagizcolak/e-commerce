@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-// src/features/products/components/ProductDetail/__tests__/ProductDetail.test.tsx
 
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";

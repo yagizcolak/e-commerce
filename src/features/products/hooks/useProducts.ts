@@ -1,5 +1,3 @@
-// src/features/products/hooks/useProducts.ts
-
 import { useState, useEffect } from 'react';
 import { NotificationSeverity } from '../../../context/NotificationContext';
 import { fetchProducts } from '../services/productService';

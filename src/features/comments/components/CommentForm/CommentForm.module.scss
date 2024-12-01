@@ -1,15 +1,15 @@
 @use "../../../../styles/variables" as *;
 
 .commentFormPaper {
-  padding: $spacing-unit * 2; // 16px
-  margin-top: $spacing-unit * 4; // 32px
+  padding: $spacing-unit * 2;
+  margin-top: $spacing-unit * 4;
 
   .title {
-    margin-bottom: $spacing-unit; // 8px
+    margin-bottom: $spacing-unit;
   }
 
   .form {
-    margin-top: $spacing-unit; // 8px
+    margin-top: $spacing-unit;
 
     .ratingContainer {
       display: flex;
@@ -19,8 +19,8 @@
 
       .errorText {
         color: var(--error-color);
-        margin-top: 4px; // Adds space between Rating and error message
-        font-size: 0.75rem; // Optional: Adjust font size for better readability
+        margin-top: 4px;
+        font-size: 0.75rem;
       }
     }
 
@@ -29,7 +29,7 @@
     }
 
     .textField {
-      margin-bottom: $spacing-unit * 2; // 16px
+      margin-bottom: $spacing-unit * 2;
     }
 
     .buttonContainer {

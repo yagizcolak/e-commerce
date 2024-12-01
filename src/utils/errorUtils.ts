@@ -1,4 +1,3 @@
-// utils/errorUtils.ts
 import { AxiosError } from 'axios';
 
 export interface ErrorResponseData {

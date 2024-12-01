@@ -1,5 +1,3 @@
-// src/styles/themeColors.ts
-
 export const themeColors = {
     // Primary Colors
     primaryMain: '#1976d2',
